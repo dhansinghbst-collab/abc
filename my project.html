@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DirectHire Nepal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2>DirectHire Nepal</h2>
+    <ul>
+      <li><a href="#">Find Workers</a></li>
+      <li><a href="#">Find Rooms</a></li>
+      <li><a href="#">How it Works</a></li>
+      <li><a href="#">List a Service</a></li>
+    </ul>
+   <a href="auth.html" id="signup-link"><button class="btn-nav" onclick="goToSignup()">Sign Up Free</button></a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hero-text">
+      <p id="hero-tag">Now live in Kathmandu Valley</p>
+      <h1>Hire local. <span>Skip the middleman.</span></h1>
+      <p id="hero-sub">Find verified painters, plumbers, room owners and more — directly. No agents. No commission. Just trust.</p>
+      <div id="hero-btns">
+        <button class="btn-primary">Find a Service</button>
+        <button class="btn-secondary">List Your Service</button>
+      </div>
+      <div id="hero-stats">
+        <span>500+ Verified Workers</span>
+        <span>0% Agent Commission</span>
+        <span>3 Cities: KTM · LLT · BKT</span>
+      </div>
+    </div>
+
+    <!-- SEARCH CARD -->
+    <div id="search-card">
+      <h3>Find what you need</h3>
+      <label>What do you need?</label>
+      <input type="text" placeholder="e.g. Painter, Room, Plumber..." />
+      <label>Location</label>
+      <input type="text" placeholder="Kathmandu, Lalitpur, Bhaktapur..." />
+      <button class="btn-primary">Search Now</button>
+      <p id="verified-note">All workers are ID verified ✓</p>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <p class="section-label">Browse Categories</p>
+    <h2>What are you looking for?</h2>
+    <div class="card-grid">
+      <div class="card">🏠 <strong>Room Rental</strong><span>120+ listings</span></div>
+      <div class="card">🎨 <strong>Painters</strong><span>80+ workers</span></div>
+      <div class="card">🔧 <strong>Plumbers</strong><span>60+ workers</span></div>
+      <div class="card">⚡ <strong>Electricians</strong><span>45+ workers</span></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <p class="section-label">How it works</p>
+    <h2>Three steps. That's it.</h2>
+    <ol>
+      <li>
+        <strong>Search & Browse</strong>
+        <p>Find verified workers or rooms based on your location, budget and needs.</p>
+      </li>
+      <li>
+        <strong>Connect Directly</strong>
+        <p>Chat and agree on terms directly with the service provider. No agent in between.</p>
+      </li>
+      <li>
+        <strong>Pay Safely</strong>
+        <p>Pay via eSewa or Khalti escrow. Money releases only after job is confirmed done.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section id="trust">
+    <ul>
+      <li>✓ ID Verified Workers</li>
+      <li>🔒 Escrow Payment Protection</li>
+      <li>⭐ Ratings & Reviews</li>
+      <li>⚖️ 48hr Dispute Resolution</li>
+    </ul>
+  </section>
+
+  <!-- WHY DIRECTHIRE -->
+  <section id="why-us">
+    <p class="section-label">Why DirectHire</p>
+    <h2>Better than Facebook groups. Cheaper than agents.</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🛡️ Fully Verified Workers</h3>
+        <p>Every worker submits their citizenship card before getting a DirectHire Verified badge.</p>
+      </div>
+      <div class="card">
+        <h3>💸 Zero Agent Commission</h3>
+        <p>Pay only a small platform fee — a fraction of what agents charge.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Safe Escrow Payments</h3>
+        <p>Your money is held safely until the job is done. Dispute resolved within 48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <h2>Ready to hire without the hassle?</h2>
+    <p>Join thousands of people in Kathmandu Valley already using DirectHire.</p>
+    <div id="cta-btns">
+      <button class="btn-white">Find a Worker Now</button>
+      <button class="btn-outline-white">List Your Service</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div id="footer-inner">
+      <div>
+        <h3>DirectHire Nepal</h3>
+        <p>Connecting Kathmandu Valley residents directly to trusted local service providers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Room Rental</a></li>
+          <li><a href="#">Painters</a></li>
+          <li><a href="#">Plumbers</a></li>
+          <li><a href="#">Electricians</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">How it Works</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Dispute Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p id="footer-bottom">&copy; 2025 DirectHire Nepal — Built for Nepal with love.</p>
+  </footer>
+  <!-- PAGE TRANSITION OVERLAY -->
+<div id="transition-overlay"></div>
+
+<script>
+  function goToSignup() {
+    var overlay = document.getElementById('transition-overlay');
+    overlay.classList.add('fade-out');
+    setTimeout(function() {
+      window.location.href = 'auth.html';
+    }, 500);
+  }
+</script>
+
+</body>
+</html>

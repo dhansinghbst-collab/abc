@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DirectHire Nepal — Login / Sign Up</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html"><h2>DirectHire Nepal</h2></a>
+  </nav>
+
+  <!-- AUTH SECTION -->
+  <section id="auth">
+    <div id="auth-card">
+
+      <!-- TOGGLE BUTTONS -->
+      <div id="toggle">
+        <button class="toggle-btn active" id="btn-login" onclick="showLogin()">Login</button>
+        <button class="toggle-btn" id="btn-signup" onclick="showSignup()">Sign Up</button>
+      </div>
+
+      <!-- FORMS WRAPPER -->
+      <div id="forms-wrapper">
+
+        <!-- LOGIN FORM -->
+        <div id="login-form" class="form-slide active-form">
+          <h2>Welcome back 👋</h2>
+          <p class="auth-sub">Login to your DirectHire account</p>
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com" />
+          <label>Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" />
+          <p class="error-msg" id="login-error"></p>
+          <button class="btn-primary" onclick="handleLogin()">Login</button>
+          <p class="switch-text">Don't have an account? <a onclick="showSignup()">Sign Up</a></p>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signup-form" class="form-slide">
+          <h2>Create account 🚀</h2>
+          <p class="auth-sub">Join DirectHire Nepal for free</p>
+          <label>Email</label>
+          <input type="email" id="signup-email" placeholder="you@example.com" />
+          <label>Password</label>
+          <input type="password" id="signup-password" placeholder="Create a password" />
+          <label>Confirm Password</label>
+          <input type="password" id="signup-confirm" placeholder="Repeat your password" />
+          <p class="error-msg" id="signup-error"></p>
+          <button class="btn-primary" onclick="handleSignup()">Create Account</button>
+          <p class="switch-text">Already have an account? <a onclick="showLogin()">Login</a></p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUCCESS POPUP -->
+  <div id="popup" class="popup hidden">
+    <div id="popup-card">
+      <div id="popup-icon">✅</div>
+      <h3 id="popup-title">Success!</h3>
+      <p id="popup-msg">You are being redirected...</p>
+      <div id="popup-loader">
+        <div id="popup-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  // TOGGLE FORMS
+  function showLogin() {
+    document.getElementById('login-form').classList.add('active-form');
+    document.getElementById('login-form').classList.remove('inactive-form');
+    document.getElementById('signup-form').classList.remove('active-form');
+    document.getElementById('signup-form').classList.add('inactive-form');
+    document.getElementById('btn-login').classList.add('active');
+    document.getElementById('btn-signup').classList.remove('active');
+  }
+
+  function showSignup() {
+    document.getElementById('signup-form').classList.add('active-form');
+    document.getElementById('signup-form').classList.remove('inactive-form');
+    document.getElementById('login-form').classList.remove('active-form');
+    document.getElementById('login-form').classList.add('inactive-form');
+    document.getElementById('btn-signup').classList.add('active');
+    document.getElementById('btn-login').classList.remove('active');
+  }
+
+  // RIPPLE EFFECT
+  function triggerRipple(btnSelector) {
+    var btn = document.querySelector(btnSelector);
+    btn.classList.remove('ripple');
+    void btn.offsetWidth;
+    btn.classList.add('ripple');
+    setTimeout(function() {
+      btn.classList.remove('ripple');
+    }, 600);
+  }
+
+  // SHOW SUCCESS POPUP THEN REDIRECT
+  function showSuccess(title, msg) {
+    document.getElementById('popup-title').innerText = title;
+    document.getElementById('popup-msg').innerText = msg;
+    document.getElementById('popup').classList.remove('hidden');
+    setTimeout(function() {
+      window.location.href = 'index.html';
+    }, 2500);
+  }
+
+  // SHOW ERROR
+  function showError(id, msg) {
+    document.getElementById(id).innerText = msg;
+  }
+
+  // CLEAR ERROR
+  function clearError(id) {
+    document.getElementById(id).innerText = '';
+  }
+
+  // ========================
+  // HANDLE SIGNUP
+  // ========================
+  function handleSignup() {
+    triggerRipple('#signup-form .btn-primary');
+
+    var email = document.getElementById('signup-email').value.trim();
+    var password = document.getElementById('signup-password').value.trim();
+    var confirm = document.getElementById('signup-confirm').value.trim();
+
+    // VALIDATIONS
+    if (email === '') {
+      showError('signup-error', '⚠️ Please enter your email.');
+      return;
+    }
+    if (!email.includes('@')) {
+      showError('signup-error', '⚠️ Please enter a valid email.');
+      return;
+    }
+    if (password === '') {
+      showError('signup-error', '⚠️ Please enter a password.');
+      return;
+    }
+    if (password.length < 6) {
+      showError('signup-error', '⚠️ Password must be at least 6 characters.');
+      return;
+    }
+    if (confirm === '') {
+      showError('signup-error', '⚠️ Please confirm your password.');
+      return;
+    }
+    if (password !== confirm) {
+      showError('signup-error', '⚠️ Passwords do not match.');
+      return;
+    }
+
+    // CHECK IF EMAIL ALREADY REGISTERED
+    var existing = JSON.parse(localStorage.getItem('dh_users') || '[]');
+    var alreadyExists = existing.find(function(u) {
+      return u.email === email;
+    });
+
+    if (alreadyExists) {
+      showError('signup-error', '⚠️ This email is already registered. Please login.');
+      return;
+    }
+
+    // SAVE USER TO BROWSER MEMORY
+    existing.push({ email: email, password: password });
+    localStorage.setItem('dh_users', JSON.stringify(existing));
+
+    clearError('signup-error');
+    showSuccess('Account Created! 🚀', 'Welcome to DirectHire Nepal. Redirecting...');
+  }
+
+  // ========================
+  // HANDLE LOGIN
+  // ========================
+  function handleLogin() {
+    triggerRipple('#login-form .btn-primary');
+
+    var email = document.getElementById('login-email').value.trim();
+    var password = document.getElementById('login-password').value.trim();
+
+    // VALIDATIONS
+    if (email === '') {
+      showError('login-error', '⚠️ Please enter your email.');
+      return;
+    }
+    if (password === '') {
+      showError('login-error', '⚠️ Please enter your password.');
+      return;
+    }
+
+    // CHECK IF USER EXISTS
+    var users = JSON.parse(localStorage.getItem('dh_users') || '[]');
+    var user = users.find(function(u) {
+      return u.email === email && u.password === password;
+    });
+
+    if (!user) {
+      showError('login-error', '⚠️ Invalid email or password. Please sign up first.');
+      return;
+    }
+
+    clearError('login-error');
+    showSuccess('Login Successful! 👋', 'Welcome back to DirectHire Nepal. Redirecting...');
+  }
+
+</script>
+</body>
+</html>

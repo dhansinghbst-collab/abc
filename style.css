@@ -1,0 +1,615 @@
+/* ========================
+   RESET
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   VARIABLES
+======================== */
+:root {
+  --green: #1D9E75;
+  --green-dark: #0F6E56;
+  --green-light: #E1F5EE;
+  --text: #2C2C2A;
+  --muted: #888780;
+  --border: rgba(0, 0, 0, 0.1);
+  --white: #ffffff;
+  --bg: #F1EFE8;
+}
+
+/* ========================
+   BODY
+======================== */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ========================
+   NAVBAR
+======================== */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h2 {
+  color: var(--green-dark);
+  font-size: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: var(--text);
+}
+
+.btn-nav {
+  background: var(--green);
+  color: var(--white);
+  padding: 8px 20px;
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-nav:hover {
+  background: var(--green-dark);
+}
+
+/* ========================
+   BUTTONS
+======================== */
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  padding: 12px 28px;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--green-dark);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-white:hover {
+  background: var(--green-light);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  padding: 12px 28px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-outline-white:hover {
+  border-color: var(--white);
+}
+
+/* ========================
+   HERO
+======================== */
+#hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 2rem 60px;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+#hero-text {
+  flex: 1;
+}
+
+#hero-tag {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+#hero h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+#hero h1 span {
+  color: var(--green);
+}
+
+#hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+#hero-btns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#hero-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+#hero-stats span {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: bold;
+}
+
+/* ========================
+   SEARCH CARD
+======================== */
+#search-card {
+  flex: 1;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#search-card h3 {
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+}
+
+#search-card label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#search-card input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: var(--bg);
+}
+
+#search-card input:focus {
+  border-color: var(--green);
+}
+
+#verified-note {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ========================
+   SHARED SECTION STYLES
+======================== */
+section {
+  padding: 60px 2rem;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+section h2 {
+  font-size: 32px;
+  margin-bottom: 2rem;
+}
+
+/* ========================
+   CARD GRID
+======================== */
+.card-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--green);
+  transform: translateY(-3px);
+}
+
+.card strong {
+  font-size: 15px;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.card span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ========================
+   CATEGORIES
+======================== */
+#categories {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ========================
+   HOW IT WORKS
+======================== */
+#how-it-works {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  max-width: 100%;
+}
+
+#how-it-works h2 {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+
+#how-it-works .section-label {
+  max-width: 1100px;
+  margin: 0 auto 0.5rem;
+  display: block;
+}
+
+#how-it-works ol {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  padding-left: 0;
+  counter-reset: steps;
+}
+
+#how-it-works ol li {
+  flex: 1;
+  list-style: none;
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  counter-increment: steps;
+  position: relative;
+}
+
+#how-it-works ol li::before {
+  content: counter(steps);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  color: var(--white);
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 0.75rem;
+}
+
+#how-it-works ol li strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  color: var(--green-dark);
+}
+
+#how-it-works ol li p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ========================
+   TRUST BAR
+======================== */
+#trust {
+  background: var(--green-dark);
+  padding: 40px 2rem;
+}
+
+#trust ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#trust ul li {
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ========================
+   WHY US
+======================== */
+#why-us {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ========================
+   CTA
+======================== */
+#cta {
+  background: var(--green);
+  text-align: center;
+  padding: 70px 2rem;
+}
+
+#cta h2 {
+  color: var(--white);
+  font-size: 36px;
+  margin-bottom: 1rem;
+}
+
+#cta p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  margin-bottom: 2rem;
+}
+
+#cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ========================
+   FOOTER
+======================== */
+footer {
+  background: var(--text);
+  color: rgba(255, 255, 255, 0.5);
+  padding: 3rem 2rem 2rem;
+}
+
+#footer-inner {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+#footer-inner > div:first-child {
+  flex: 2;
+}
+
+#footer-inner h3 {
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 0.75rem;
+}
+
+#footer-inner > div:first-child p {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 260px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 120px;
+}
+
+.footer-col h4 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-col ul li a:hover {
+  color: var(--white);
+}
+
+#footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media (max-width: 768px) {
+
+  nav ul {
+    display: none;
+  }
+
+  #hero {
+    flex-direction: column;
+    padding: 40px 1rem;
+    gap: 2rem;
+  }
+
+  #hero h1 {
+    font-size: 32px;
+  }
+
+  #hero-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-grid {
+    flex-direction: column;
+  }
+
+  #how-it-works ol {
+    flex-direction: column;
+  }
+
+  #trust ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #cta h2 {
+    font-size: 26px;
+  }
+
+  #cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #footer-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+/* ========================
+   PAGE TRANSITION OVERLAY
+======================== */
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--green);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+#transition-overlay.fade-out {
+  opacity: 1;
+  pointer-events: all;
+}

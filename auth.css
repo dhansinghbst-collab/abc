@@ -1,0 +1,346 @@
+/* ========================
+   RESET
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   VARIABLES
+======================== */
+:root {
+  --green: #1D9E75;
+  --green-dark: #0F6E56;
+  --green-light: #E1F5EE;
+  --text: #2C2C2A;
+  --muted: #888780;
+  --border: rgba(0, 0, 0, 0.1);
+  --white: #ffffff;
+  --bg: #F1EFE8;
+}
+
+/* ========================
+   BODY
+======================== */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ========================
+   NAVBAR
+======================== */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav h2 {
+  color: var(--green-dark);
+  font-size: 20px;
+}
+
+/* ========================
+   AUTH SECTION
+======================== */
+#auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+}
+
+/* ========================
+   AUTH CARD
+======================== */
+#auth-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* ========================
+   TOGGLE BUTTONS
+======================== */
+#toggle {
+  display: flex;
+  background: var(--bg);
+  border-radius: 100px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background: var(--white);
+  color: var(--green-dark);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================
+   FORMS WRAPPER
+======================== */
+#forms-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========================
+   FORM SLIDE ANIMATION
+======================== */
+.form-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.4s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.form-slide.active-form {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  pointer-events: all;
+}
+
+.form-slide.inactive-form {
+  opacity: 0;
+  transform: translateX(-40px);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ========================
+   FORM CONTENT
+======================== */
+#auth-card h2 {
+  font-size: 22px;
+  color: var(--text);
+}
+
+.auth-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+#auth-card label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#auth-card input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+#auth-card input:focus {
+  border-color: var(--green);
+}
+
+/* ========================
+   PRIMARY BUTTON
+======================== */
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  padding: 13px;
+  border: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0px);
+}
+
+/* ========================
+   SWITCH TEXT
+======================== */
+.switch-text {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.switch-text a {
+  color: var(--green);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media (max-width: 480px) {
+  #auth-card {
+    padding: 1.5rem;
+  }
+
+  #auth-card h2 {
+    font-size: 20px;
+  }
+}
+/* ========================
+   ERROR MESSAGE
+======================== */
+.error-msg {
+  font-size: 13px;
+  color: #e53935;
+  min-height: 18px;
+}
+
+/* ========================
+   SUCCESS POPUP
+======================== */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+#popup-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#popup-icon {
+  font-size: 40px;
+}
+
+#popup-card h3 {
+  font-size: 20px;
+  color: var(--text);
+}
+
+#popup-card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#popup-loader {
+  background: var(--bg);
+  border-radius: 100px;
+  height: 6px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+#popup-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  border-radius: 100px;
+  animation: loadBar 2.5s ease forwards;
+}
+
+@keyframes loadBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+/* ========================
+   PAGE FADE IN ON LOAD
+======================== */
+body {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
